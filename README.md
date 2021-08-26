@@ -7,11 +7,7 @@
 
 <p align="center"><img src="https://i.pinimg.com/originals/3c/37/9e/3c379e30fdf69c7ab688e596c873bf2c.png" /></p>
 
-## About
-
-A simple base anonymous chat
-
-# Introduction
+### Introduction
 
 - An ordinary anonymous bot script made in my style using the telegraph module
 - This bot script database uses mongoDB
