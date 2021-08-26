@@ -75,7 +75,7 @@ ketik di terminal `node main.js` atau `npm start`
   <tr>
     <td align="center">
       <a href="#">
-        <img src="https://i.ibb.co/yfDPVzy/1a7cb1c7b073.jpg" width="100px;" alt="nullteam"/><br>
+        <img src="https://i.ibb.co/yfDPVzy/1a7cb1c7b073.jpg" width="75px;" alt="nullteam"/><br>
         <sub>
           <b>Null Team</b>
         </sub>
