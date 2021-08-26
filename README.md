@@ -16,13 +16,13 @@
 
 ### Instalasi
 
-- Instal node.js
-- Install git
-- Clone repo ini.
-- Instal all module terlebih dahulu dengan cara mengetik `npm install`.<br>
-- Get bot token in [BotFather](t.me/BotFather)
-- Register an get mongo_URI in [this site](https://www.mongodb.com/cloud/atlas/lp/try2?utm_source=google&utm_campaign=gs_apac_indonesia_search_core_brand_atlas_mobile&utm_term=mongodb&utm_medium=cpc_paid_search&utm_ad=e&utm_ad_campaign_id=12564980861&gclid=CjwKCAjw1JeJBhB9EiwAV612y5-Bu_28hUc-Vnu5A0EurZ3B2GxFrsrIfrKniatcN6HGoYWXKLhMqxoCzI0QAvD_BwE)
-- Edit file `config/config.json`:
+- Download And Install NodeJS [`Click Here`](https://nodejs.org/en/download)
+- Download And Install Git [`Click Here`](https://git-scm.com/downloads)
+- Clone This Repo
+- Install All Modules First By Typing `npm install`.<br>
+- Get Bot Token In [BotFather](t.me/BotFather)
+- Register An Get Mongo_URI In [this site](https://www.mongodb.com/cloud/atlas/lp/try2?utm_source=google&utm_campaign=gs_apac_indonesia_search_core_brand_atlas_mobile&utm_term=mongodb&utm_medium=cpc_paid_search&utm_ad=e&utm_ad_campaign_id=12564980861&gclid=CjwKCAjw1JeJBhB9EiwAV612y5-Bu_28hUc-Vnu5A0EurZ3B2GxFrsrIfrKniatcN6HGoYWXKLhMqxoCzI0QAvD_BwE)
+- Edit File `config/config.json`:
 
 ```js
 {
