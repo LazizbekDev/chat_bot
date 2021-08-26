@@ -102,6 +102,24 @@ bot.on('message', async lintof => {
       status: 1
     });
   };
+  
+  const getUser = (ctx) => {
+    try {
+      user = ctx
+      last_name = user["last_name"] || ""
+      full_name = user.first_name + " " + last_name
+      user["full_name"] = full_name.trim()
+      return user
+    } catch (e) { throw e }
+  }
+  
+  const sender = getUser(lintof.message.from)
+  // Get user ID
+  const userid = sender.id
+  // Get user name
+  const username = sender.username
+  // Owner
+  const isOwner = config.ownerUsername.includes(username)
 
   // Media Type
   const isText = lintof.message.hasOwnProperty("text")
