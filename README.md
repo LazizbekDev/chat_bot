@@ -57,7 +57,7 @@ ketik di terminal `node main.js` atau `npm start`
 - [Trakteer](https://trakteer.id/lintodamamiya)
 - Or you can give me a stars for this repo ⭐
 
----------
+### Contributors ✨
 
 <a href="https://i.ibb.co/yfDPVzy/1a7cb1c7b073.jpg"><img src="https://i.ibb.co/yfDPVzy/1a7cb1c7b073.jpg" width="100" height="65"></a> | [![Lindow](https://github.com/mccnlight.png?size=135)](https://github.com/mccnlight) | [![Ehanjing](https://github.com/ehanganss.png?size=80)](https://github.com/ehanganss)
 ----|----|----
