@@ -31,6 +31,18 @@
 }
 ```
 
+### Termux Instalisasi
+
+```cmd
+$ termux-setup-storage
+$ pkg install nodejs -y
+$ pkg install git -y
+$ git clone https://github.com/mccnlight/anonymouschat-telegraf
+$ cd anonymouschat-telegraf
+$ npm install
+$ npm start
+```
+
 ### Penggunaan
 
 ketik di terminal `node main.js` atau `npm start`
