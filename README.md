@@ -16,7 +16,9 @@
 
 ### Hak Cipta
 
+<p align="center">
 Project ini memakai Licensi **Apache-2.0** Yang dimana penggunanya dapat menggunakan, menyalin, memodifikasi, menggabungkan, menerbitkan, mendistribusikan, dan atau mensublisensikan dengan **tanpa menghapus author utama dari source code ini.**
+</p>
 
 ### Instalasi
 
