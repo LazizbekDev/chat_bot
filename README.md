@@ -14,6 +14,10 @@
 - This project is still in Beta, so sorry if there are many errors
 - If you find a bug report to me [lindow](https://wa.me/6288291579481)
 
+### Hak Cipta
+
+Project ini memakai Licensi *Apache-2.0* Yang dimana penggunanya dapat menggunakan, menyalin, memodifikasi, menggabungkan, menerbitkan, mendistribusikan, dan atau mensublisensikan dengan tanpa menghapus author utama dari source code ini.
+
 ### Instalasi
 
 - Download And Install NodeJS [`Click Here`](https://nodejs.org/en/download)
