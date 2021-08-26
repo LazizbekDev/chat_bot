@@ -19,7 +19,7 @@
 - Instal node.js
 - Install git
 - Clone repo ini.
-- Instal terlebih dahulu dengan cara mengetik `npm install` atau ketik di terminal `bash install.sh`.<br>
+- Instal terlebih dahulu dengan cara mengetik `npm install`.<br>
 - Edit file `config/config.json`:
 
 ```js
