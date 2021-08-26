@@ -12,13 +12,14 @@ if (config.botToken == "") {
   return console.log("Check config.json bot token belum diisi")
 }
 
-// If mongo_URI is empty
+// Mongo_URI cannot be empty
 if (config.mongo_URI == "") {
   return console.log("Check config.json mongo_URI belum diisi")
 }
 
 const bot = new Telegraf(config.botToken);
 
+// Mongoose Connection
 const mongoose = require("mongoose");
 const db = require("./model/Contact");
 mongoose.connect(config.mongo_URI, {
