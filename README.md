@@ -58,10 +58,10 @@ ketik di terminal `node main.js` atau `npm start`
 
 ---------
 
-<a href="https://i.ibb.co/yfDPVzy/1a7cb1c7b073.jpg"><img src="https://i.ibb.co/yfDPVzy/1a7cb1c7b073.jpg" width="100" height="65"></a> | [![Lindow](https://github.com/mccnlight.png?size=120)](https://github.com/mccnlight) | [![Ehanjing](https://github.com/ehanganss.png?size=80)](https://github.com/ehanganss)
+<a href="https://i.ibb.co/yfDPVzy/1a7cb1c7b073.jpg"><img src="https://i.ibb.co/yfDPVzy/1a7cb1c7b073.jpg" width="100" height="65"></a> | [![Lindow](https://github.com/mccnlight.png?size=135)](https://github.com/mccnlight) | [![Ehanjing](https://github.com/ehanganss.png?size=80)](https://github.com/ehanganss)
 ----|----|----
 [Null Team](https://i.ibb.co/yfDPVzy/1a7cb1c7b073.jpg) | [Lindow](https://github.com/mccnlight) | [Ehanjing](https://github.com/ehanganss)
-Powered by Null Team | Author | Most Active Contributor
+Powered by Null Team | Author / Creator | Most Active Contributor
 
 <p align="center"><font size = "5">Selamat Mencoba! </font><br></p>
 <p align="center"><img src="https://cdn.discordapp.com/attachments/519859252966457369/735280356441456641/4c64e343e788251fb15dac0f4c557337.gif" /></p>
