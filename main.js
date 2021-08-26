@@ -7,7 +7,7 @@ const fs = require("fs");
 // Database
 const config = JSON.parse(fs.readFileSync("./config.json"));
 
-// If the token bot is empty
+// Token bot cannot be empty
 if (config.botToken == "") {
   return console.log("Check config.json bot token belum diisi")
 }
