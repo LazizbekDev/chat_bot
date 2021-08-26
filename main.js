@@ -118,7 +118,7 @@ bot.on('message', async lintof => {
   const userid = sender.id
   // Get user name
   const username = sender.username
-  // Owner
+  // Owner, change in config.json
   const isOwner = config.ownerUsername.includes(username)
 
   // Media Type
