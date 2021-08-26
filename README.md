@@ -19,25 +19,23 @@
 - Instal node.js
 - Install git
 - Clone repo ini.
-- Instal terlebih dahulu dengan cara mengetik `npm install`.<br>
+- Instal all module terlebih dahulu dengan cara mengetik `npm install`.<br>
+- Get bot token in [BotFather](t.me/BotFather)
+- Register an get mongo_URI in [this site](https://www.mongodb.com/cloud/atlas/lp/try2?utm_source=google&utm_campaign=gs_apac_indonesia_search_core_brand_atlas_mobile&utm_term=mongodb&utm_medium=cpc_paid_search&utm_ad=e&utm_ad_campaign_id=12564980861&gclid=CjwKCAjw1JeJBhB9EiwAV612y5-Bu_28hUc-Vnu5A0EurZ3B2GxFrsrIfrKniatcN6HGoYWXKLhMqxoCzI0QAvD_BwE)
 - Edit file `config/config.json`:
 
 ```js
 {
-  "username": "", // Username Instagram
-  "password": "" // Password Instagram
+  "botToken": "", // Bot Token
+  "mongo_URI": "" // Mongo Cluster mongo+srv..
 }
 ```
 
 ### Penggunaan
 
-ketik di terminal `node main.js` kemudian scan kode QR yang tersedia di console/terminal untuk menjalakannya!
+ketik di terminal `node main.js` atau `npm start`
 
 ### Thanks to
-
-[`KatowProject`](https://github.com/KatowProject)
-
-[`Fazone`](https://github.com/fazonetea)
 
 ### Join group
 
