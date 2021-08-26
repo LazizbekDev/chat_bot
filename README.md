@@ -57,7 +57,7 @@ ketik di terminal `node main.js` atau `npm start`
 - Light library without any heavy database ( mongoDB )
 - All platform supported, also termux.
 
-### Join My Group 🔰
+### Join My Group
 
 [`All About Bot WhatsApp`](https://chat.whatsapp.com/CEDyT5JRhUrIhHL12V3Ga3)
 
@@ -65,7 +65,7 @@ ketik di terminal `node main.js` atau `npm start`
 
 - [Saweria](https://saweria.co/lindowamamiya)
 - [Trakteer](https://trakteer.id/lintodamamiya)
-- Or you can give me a stars for this repo ⭐
+- Or you can give me a stars for this repo
 
 ### Contributors ✨
 
