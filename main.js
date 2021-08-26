@@ -64,7 +64,7 @@ function sendsearch(ctx) {
 
 bot.on('message', async lintof => {
 
-  const body = lintof.update.message.text || ''
+  const body = lintof.update.message.text || lintof.message.caption || lintof.message.text || ''
   const command = body.split(' ')[0]
   const isCmd = body.startsWith('/')
   const isGroup = lintof.chat.type.includes("group")
@@ -449,9 +449,18 @@ bot.on('message', async lintof => {
     case "/broadcast":
      const getUserName = await db.find().select("contactId");
      if (!isOwner) return bot.telegram.sendMessage(from, "hanya command untuk owner");
-     if (isOwner) {
-       bctxt = body.slice(command.length + 1)
-       txtbc = `*BROADCAST*\n\n${bctxt}`;
+     if (isImage) {
+       txtbc = `*BROADCAST*\n\n${body.slice(command.length + 1)}`;
+       for (let i = 0; i < getUserName.length; i++) {
+         bot.telegram.sendPhoto(getUserName[i].contactId, lintof.message.photo[2].file_id, {caption: txtbc, parse_mode: "Markdown"});
+       }
+     } else if (isVideo) {
+       txtbc = `*BROADCAST*\n\n${body.slice(command.length + 1)}`;      
+       for (let i = 0; i < getUserName.length; i++) {
+         bot.telegram.sendVideo(getUserName[i].contactId, lintof.message.video.file_id, {caption: txtbc, parse_mode: "Markdown"});
+       }
+     } else {
+       txtbc = `*BROADCAST*\n\n${body.slice(command.length + 1)}`;
        for (let i = 0; i < getUserName.length; i++) {
          bot.telegram.sendMessage(getUserName[i].contactId, txtbc, {parse_mode: "Markdown"});
        }
