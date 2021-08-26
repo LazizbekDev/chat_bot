@@ -53,7 +53,7 @@ ketik di terminal `node main.js` atau `npm start`
 
 ---------
 
-<a href="https://i.ibb.co/yfDPVzy/1a7cb1c7b073.jpg"><img src="https://i.ibb.co/yfDPVzy/1a7cb1c7b073.jpg" width="100" height="65"></a> | [![Lindow](https://github.com/mccnlight.png?size=100)](https://github.com/mccnlight) | [![Ehanjing](https://github.com/ehanganss.png?size=80)](https://github.com/ehanganss)
+<a href="https://i.ibb.co/yfDPVzy/1a7cb1c7b073.jpg"><img src="https://i.ibb.co/yfDPVzy/1a7cb1c7b073.jpg" width="100" height="65"></a> | [![Lindow](https://github.com/mccnlight.png?size=110)](https://github.com/mccnlight) | [![Ehanjing](https://github.com/ehanganss.png?size=80)](https://github.com/ehanganss)
 ----|----|----
 [Null Team](https://i.ibb.co/yfDPVzy/1a7cb1c7b073.jpg) | [Lindow](https://github.com/mccnlight) | [Ehanjing](https://github.com/ehanganss)
 Powered by Null Team | Author | Most Active Contributor
