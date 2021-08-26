@@ -55,6 +55,7 @@ ketik di terminal `node main.js` atau `npm start`
 ### Feature
 
 - Connect with people random support text message, sticker and other media!
+- Broadcast feature text ( commit for support all mediatype )
 - Light library without any heavy database ( mongoDB )
 - All platform supported, also termux.
 
