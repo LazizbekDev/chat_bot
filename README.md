@@ -31,7 +31,8 @@ Project ini memakai Licensi **Apache-2.0** Yang dimana penggunanya dapat menggun
 ```js
 {
   "botToken": "", // Bot Token
-  "mongo_URI": "" // Mongo Cluster mongo+srv..
+  "mongo_URI": "", // mongo+srv..
+  "ownerUsername": [""] // username telegram
 }
 ```
 
