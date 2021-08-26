@@ -9,7 +9,7 @@
 
 ## About
 
-A simple base selfbot
+A simple base anonymous chat
 
 # Introduction
 
