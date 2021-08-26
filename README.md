@@ -93,7 +93,7 @@ ketik di terminal `node main.js` atau `npm start`
       <a href="#">
         <img src="https://avatars.githubusercontent.com/u/59309932?v=4" width="100px;" alt="ehan"/><br>
         <sub>
-          <b>Ehannjing</b>
+          <b>Ehanzx</b>
         </sub>
       </a>
     </td>
