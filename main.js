@@ -445,6 +445,18 @@ bot.on('message', async lintof => {
         bot.telegram.sendMessage(from, config.mess.error.notRegistered, {parse_mode: "Markdown"});
       });
       break;
+    case "bc":
+    case "broadcast":
+     const getUserName = await db.find().select("contactId");
+     if (!isOwner) return bot.telegram.sendMessage(from, "hanya command untuk owner");
+     if (isOwner) {
+       bctxt = body.slice(command.length + 1)
+       txtbc = `*BROADCAST*\n\n${bctxt}`;
+       for (let i = 0; i < getUserName.length; i++) {
+         bot.telegram.sendMessage(getUserName[i].contactId, txtbc);
+       }
+     }
+     break;
   }
 })
 
