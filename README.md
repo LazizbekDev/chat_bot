@@ -51,6 +51,12 @@ $ npm start
 
 ketik di terminal `node main.js` atau `npm start`
 
+### Feature
+
+- Connect with people random support text message, sticker and other media!
+- Light library without any heavy database ( mongoDB )
+- All platform supported, also termux.
+
 ### Join My Group 🔰
 
 [`All About Bot WhatsApp`](https://chat.whatsapp.com/CEDyT5JRhUrIhHL12V3Ga3)
