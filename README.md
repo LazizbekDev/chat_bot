@@ -12,7 +12,6 @@
 - An ordinary anonymous bot script made in my style using the telegraph module
 - This bot script database uses mongoDB
 - This project is still in Beta, so sorry if there are many errors
-- If you find a bug report to me [lindow](https://wa.me/6288291579481)
 
 ### Hak Cipta
 
@@ -58,10 +57,6 @@ ketik di terminal `node main.js` atau `npm start`
 - Broadcast feature support all type message or media
 - Light library without any heavy database ( mongoDB )
 - All platform supported, also termux.
-
-### Join Null Team Group
-
-[`Click Here`](https://chat.whatsapp.com/CK5YaOYcNOr6zSAHda71lo)
 
 ### Support Me 🍙
 
