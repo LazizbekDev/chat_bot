@@ -8,10 +8,7 @@ async function handleMessage(bot, lintof, isText, isSticker, isImage, isVideo, i
     try {
         const findContactResult = await findContact(lintof.chat.id);
 
-        if (
-            findContactResult.partnerId === lintof.chat.id ||
-            (findContactResult.partnerId !== null && findContactResult.status === 0)
-        ) {
+        if (findContactResult.partnerId === lintof.chat.id || (findContactResult.partnerId !== null && findContactResult.status === 0)) {
             findContactResult.status = 0;
             findContactResult.partnerId = null;
             await findContactResult.save();
@@ -27,19 +24,16 @@ async function handleMessage(bot, lintof, isText, isSticker, isImage, isVideo, i
         }
 
         const contactResult = await chatContact(lintof.chat.id);
-        console.log(contactResult)
         const partnerContact = await findContactPartner(contactResult.contactId);
 
         if (partnerContact.contactId === contactResult.partnerId) {
             if (isText) {
-                await bot.telegram.sendMessage(
-                    contactResult.partnerId,
-                    lintof.message.text,
-                    { parse_mode: "Markdown" }
-                );
-            } else if (isSticker) {
+                await bot.telegram.sendMessage(contactResult.partnerId, lintof.message.text, { parse_mode: "Markdown" });
+            }
+            else if (isSticker) {
                 await bot.telegram.sendSticker(contactResult.partnerId, lintof.message.sticker.file_id);
-            } else if (isImage) {
+            }
+            else if (isImage) {
                 await bot.telegram.sendPhoto(contactResult.partnerId, lintof.message.photo[2].file_id, {
                     caption: lintof.message.caption,
                     parse_mode: "Markdown",

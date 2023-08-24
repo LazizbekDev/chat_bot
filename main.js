@@ -9,6 +9,7 @@ const {
     connect,
     startSearch
 } = require('./controller/base.js');
+const { handleFindingPartner } = require('./controller/findPartner.js');
 const { handleMessage } = require('./controller/isCmd.js');
 const {readFileSync} = require("fs");
 
@@ -66,101 +67,7 @@ bot.on('message', async (lintof) => {
             await handleRegistration(bot, from, lintof);
             break;
         case "/start":
-            await findContact(from)
-                .then(async (res) => {
-                    if (
-                        res.partnerId === from ||
-                        (res.partnerId !== null && res.status === 0)
-                    ) {
-                        res.status = 0;
-                        res.partnerId = null;
-                        await res.save();
-                        return;
-                    }
-                    const con = res;
-                    if (res.partnerId === null) {
-                        sortPartnerId()
-                            .then(async (res) => {
-                                if (res.partnerId === null) {
-                                    con.status = 1;
-                                    await con.save();
-                                    startSearch(bot, lintof)
-                                    const findPartner = new Promise((resolve, reject) => {
-                                        setInterval(async () => {
-                                                const partnerQuery = await db
-                                                    .findOne({
-                                                        status: 1, partnerId: null
-                                                    })
-                                                    .where("contactId")
-                                                    .ne(from);
-                                                if (partnerQuery) {
-                                                    resolve(partnerQuery);
-                                                } else {
-                                                    reject(partnerQuery);
-                                                }
-                                            },
-                                            100);
-                                    });
-                                    findPartner
-                                        .then(async (res) => {
-                                            const finder = await db.findOne({
-                                                contactId: from,
-                                            });
-                                            finder.partnerId = res.contactId;
-                                            res.partnerId = finder.contactId;
-                                            await finder.save();
-                                            await res.save();
-                                            bot.telegram.sendMessage(
-                                                res.contactId,
-                                                config.mess.partnerFound,
-                                                {parse_mode: "Markdown"});
-                                            bot.telegram.sendMessage(
-                                                res.partnerId,
-                                                config.mess.partnerFound, {parse_mode: "Markdown"}
-                                            );
-                                        })
-                                        .catch(() => {
-                                            setTimeout(async () => {
-                                                findContact(from).then(async (res) => {
-                                                    if (res.partnerId === null) {
-                                                        bot.telegram.sendMessage(
-                                                            from,
-                                                            config.mess.error.partnerNotFound, {parse_mode: "Markdown"}
-                                                        );
-                                                        res.status = 0;
-                                                        await res.save();
-                                                    }
-                                                });
-                                            }, 20000);
-                                        });
-                                }
-                            })
-                            .catch((err) => {
-                                console.log(err);
-                            });
-                    } else if (res.partnerId !== null) {
-                        const nonNullPartnerId = await db.findOne({
-                            contactId: res.partnerId,
-                        });
-                        if (nonNullPartnerId.partnerId !== res.partnerId) {
-                            res.status = 0;
-                            res.partnerId = null;
-                            await res.save();
-                            bot.telegram.sendMessage(
-                                from,
-                                config.mess.error.isBrokenPartner, {parse_mode: "Markdown"}
-                            );
-                        } else if (res.partnerId !== null && res.status !== 0) {
-                            return bot.telegram.sendMessage(
-                                from,
-                                config.mess.error.isSession, {parse_mode: "Markdown"}
-                            );
-                        }
-                    }
-                })
-                .catch(() => {
-                    bot.telegram.sendMessage(from, config.mess.error.notRegistered, {parse_mode: "Markdown"});
-                });
+            await handleFindingPartner(from, bot, lintof);
             break;
         case "/unregister":
             findContact(from).then(async (res) => {

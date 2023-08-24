@@ -114,5 +114,6 @@ module.exports = {
     findContactPartner: findContactPartner,
     sortPartnerId: sortPartnerId,
     getUser: getUser,
-    startSearch: startSearch
+    startSearch: startSearch,
+    config
 };
