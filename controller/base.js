@@ -5,13 +5,13 @@ const mongoose = require("mongoose");
 const config = JSON.parse(readFileSync("./config.json"));
 
 // Token bot cannot be empty
-if (config.botToken === "") console.log("Check config.json bot token belum diisi");
+if (process.env.botToken === "") console.log("Check config.json bot token belum diisi");
 // Mongo_URI cannot be empty
-if (config.mongo_URI === "") console.log("Check config.json mongo_URI belum diisi")
+if (process.env.mongo_URI === "") console.log("Check config.json mongo_URI belum diisi")
 
 const connect = async () => {
     try {
-        const connect = await mongoose.connect(config.mongo_URI);
+        const connect = await mongoose.connect(process.env.mongo_URI);
         console.log(`${colors.green('➜')}  ${colors.bold.green('DB:   ')}    ${colors.underline.green(connect.connection.host)}`)
     } catch (err) {
         console.log(`${colors.gray('➜')}  ${colors.red('ERR:')}    ${err.message}`.red.underline.bold)

@@ -93,6 +93,20 @@ bot.on('message', async (userScope) => {
     }
 })
 
+app.get('/', (req,res) => {
+    res.status(200).json({
+        status: "OK",
+        server: "ON"
+    })
+})
+
+app.post('/', (req, res) => {
+    res.status(200).json({
+        status: "OK",
+        server: "ON"
+    })
+})
+
 const PORT = process.env.PORT || 5000;
 
 if(process.env.NODE_ENV === "PRODUCTION"){
@@ -109,5 +123,7 @@ if(process.env.NODE_ENV === "PRODUCTION"){
         console.info(`The bot ${bot.botInfo.username} is running locally`);
     });
 }
-process.once('SIGINT', () => bot.stop('SIGINT'))
-process.once('SIGTERM', () => bot.stop('SIGTERM'))
+
+app.listen(PORT, () => {
+    console.log(PORT)
+})
