@@ -1,0 +1,25 @@
+{
+  "ownerUsername": ["mernme","bundey"],
+  "mess": {
+    "findPartner": "⌛ *Wait a minute, looking for a partner* ⌛",
+    "partnerFound": "*Partner found*\n\n/next — look for another partner\n/stop — end this conversition",
+    "registerSuccess": "*Successful registration*\n\nTerms and Conditions :\n\nThis source code or bot is an open-source program (free) written using Javascript, you can use, copy, modify, merge, publish, distribute, sublicense, and or sell copies without removing the main author from this source code or bot.\nBy using this source code or bot, you agree to the following Terms and Conditions:\n\n- Source code / bots do not store your data on our servers.\nSource code/bots are not responsible for what you send to your interlocutor.\n- Source code/bots may not be used for services that purpose/contribute to: \n\t\t\t\t• sex or human trafficking\n\t\t\t\t•Gambling\n\t\t\t\t• Harmful addictive behavior\n\t\t\t\t•crime\n\t\t\t\tviolence (except as necessary to protect public safety)\n\t\t\t\t• forest burning or deforestation\n\t\t\t\t• hate speech or discrimination based on age, gender, gender identity, race, sexuality, religion, nationality\n\nBOT Source Code : https://github.com/mccnlight/anonymouschat-telegraf\n\n*Support Me 🍙*\n- saweria.co/lindowamamiya\n- trakteer.id/lintodamamiya\n\nRegards, Lindow.\n\n*Type /start to start looking for a partner*",
+    "unRegisterSuccess": "Account was successfully deleted! you can't get any transmission and use the bot before re-signing up",
+    "error": {
+      "sessionNotFound": "You don't have a partner yet, write /start to find your partner You🔹don't have a partner yet, enter the word /start to find a partner",
+      "partnerNotFound": "❌ Failed, partner not found please type /start to find a partner ❌",
+      "partnerStopSession": "⚠️ Your partner has stopped the session, please type /start to find another ⚠️ partner",
+      "stopSession": "You have stopped the session, please type /start to find another partner",
+      "nextSession": "⌛ *You have terminated the session, are looking for another partner, please wait...* ⌛",
+      "isSession": "❌ Failing that, you still have a session with your previous partner, type /stop to stop the conversation ❌",
+      "notRegistered": "❌ Failed, you have not registered type /register to register ❌",
+      "isRegistered": "❌ You have registered, please type /start to find a partner ❌",
+      "isBrokenPartner": "❌ Your partner is having problems, please type /start to find another ❌ partner",
+      "notCommand": "❌ You entered the wrong command, please type /help to see the command list ❌",
+      "stick": "⚠️ An error occurred while sending the sticker ⚠️",
+      "audioMax": "❌ Failed, you sent Audio with a duration of more than 25 seconds, the maximum duration is 25 seconds! ❌",
+      "videoMax": "❌ Failed, you send a video with a duration of more than 20 seconds, the maximum duration is 20 seconds! ❌",
+      "isGroup": "⚠️ This bot cannot enter groups, Anonymxs is only for Personal Chat ⚠️"
+    }
+  }
+}

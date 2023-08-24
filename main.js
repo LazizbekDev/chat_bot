@@ -13,6 +13,10 @@ const {handleSession} = require("./controller/skip.js");
 const {handleStopSession} = require("./controller/stop.js");
 const sendBroadcastMessage = require("./controller/bc.js");
 const { config: cnf } = require('dotenv');
+const express = require("express");
+
+const app = express();
+app.use(express.json());
 
 cnf();
 
@@ -25,7 +29,7 @@ bot.on('message', async (userScope) => {
     const body = userScope.update.message.text || userScope.message.caption || userScope.message.text || ''
     const command = body.split(' ')[0]
     const isCmd = body.startsWith('/')
-    const isGroup = userScope.chat.type.includes("group")
+    // const isGroup = userScope.chat.type.includes("group")
     const from = userScope.chat.id
 
     // console.log(userScope.chat)
@@ -33,7 +37,7 @@ bot.on('message', async (userScope) => {
 
     const sender = getUser(userScope.message.from)
     // Get user ID
-    const userid = sender.id
+    // const userid = sender.id
     // Get user name
     const username = sender.username
     // Owner, change in config.json
@@ -46,7 +50,7 @@ bot.on('message', async (userScope) => {
     const isAudio = userScope.message.hasOwnProperty("audio")
     const isSticker = userScope.message.hasOwnProperty("sticker")
     const isContact = userScope.message.hasOwnProperty("contact")
-    const isLocation = userScope.message.hasOwnProperty("location")
+    // const isLocation = userScope.message.hasOwnProperty("location")
     const isDocument = userScope.message.hasOwnProperty("document")
     const isAnimation = userScope.message.hasOwnProperty("animation")
 
@@ -89,8 +93,21 @@ bot.on('message', async (userScope) => {
     }
 })
 
-bot.launch()
-//
-// // Enable graceful stop
-// process.once('SIGINT', () => bot.stop('SIGINT'))
-// process.once('SIGTERM', () => bot.stop('SIGTERM'))
+const PORT = process.env.PORT || 5000;
+
+if(process.env.NODE_ENV === "PRODUCTION"){
+    bot.launch({
+        webhook:{
+            domain: process.env.URL,// Your domain URL (where server code will be deployed)
+            port: PORT
+        }
+    }).then(() => {
+        console.info(`The bot ${bot.botInfo.username} is running on server`);
+    });
+} else { // if local use Long-polling
+    bot.launch().then(() => {
+        console.info(`The bot ${bot.botInfo.username} is running locally`);
+    });
+}
+process.once('SIGINT', () => bot.stop('SIGINT'))
+process.once('SIGTERM', () => bot.stop('SIGTERM'))
