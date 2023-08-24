@@ -14,6 +14,7 @@ const {handleStopSession} = require("./controller/stop.js");
 const sendBroadcastMessage = require("./controller/bc.js");
 const { config: cnf } = require('dotenv');
 const express = require("express");
+const colors = require('colors')
 
 const app = express();
 app.use(express.json());
@@ -125,5 +126,5 @@ if(process.env.NODE_ENV === "PRODUCTION"){
 }
 
 app.listen(PORT, () => {
-    console.log(PORT)
+    console.log(`${colors.green('➜')}  ${colors.bold.cyan('local:')}    ${colors.underline.cyan('http://localhost:' + PORT)}`)
 })
