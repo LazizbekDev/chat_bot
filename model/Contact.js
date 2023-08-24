@@ -15,6 +15,12 @@ const contactSchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
+
+
+  username: {
+    type: String,
+    default: null
+  }
 });
 
 module.exports = mongoose.model("Contact", contactSchema);

