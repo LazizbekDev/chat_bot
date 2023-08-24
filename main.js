@@ -12,14 +12,14 @@ const {Telegraf} = require("telegraf");
 // const {handleSession} = require("./controller/skip.js");
 // const {handleStopSession} = require("./controller/stop.js");
 // const sendBroadcastMessage = require("./controller/bc.js");
-const { config: cnf } = require('dotenv');
+const { config } = require('dotenv');
 const express = require("express");
 const colors = require('colors')
 
 const app = express();
 app.use(express.json());
 
-cnf();
+config();
 
 const bot = new Telegraf(process.env.botToken);
 // connect().then(()=>{});
@@ -126,7 +126,3 @@ if(process.env.NODE_ENV === "PRODUCTION"){
         console.info(`The bot ${bot.botInfo.username} is running locally`);
     });
 }
-
-app.listen(PORT, () => {
-    console.log(`${colors.green('➜')}  ${colors.bold.cyan('local:')}    ${colors.underline.cyan('http://localhost:' + PORT)}`)
-})
