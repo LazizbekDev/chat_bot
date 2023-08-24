@@ -26,6 +26,7 @@
   "dependencies": {
     "chalk": "*",
     "colors": "^1.4.0",
+    "dotenv": "^16.3.1",
     "extra": "^0.2.1",
     "fs": "*",
     "markup": "0.0.4",

@@ -74,7 +74,7 @@ async function handleFindingPartner(from, bot, lintof) {
                             res.status = 0;
                             await res.save();
                         }
-                    }, 30000);
+                    }, 20000);
                 }
             }
         }
