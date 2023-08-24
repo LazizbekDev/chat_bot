@@ -27,7 +27,7 @@ connect().then(()=>{});
 
 bot.on('message', async (userScope) => {
 
-    userScope.sendMessage("hey salom")
+    // userScope.sendMessage("hey salom")
 
     const body = userScope.update.message.text || userScope.message.caption || userScope.message.text || ''
     const command = body.split(' ')[0]
