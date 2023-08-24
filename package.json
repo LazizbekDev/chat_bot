@@ -24,18 +24,19 @@
   },
   "homepage": "https://github.com/mccnlight/anonymouschat-telegraf#readme",
   "dependencies": {
-    "fs": "*",
     "chalk": "*",
-    "util": "*",
+    "colors": "^1.4.0",
     "extra": "^0.2.1",
+    "fs": "*",
     "markup": "0.0.4",
     "moment-timezone": "^0.5.33",
-    "nodemon": "^2.0.7",
     "mongoose": "*",
+    "nodemon": "^2.0.7",
     "os": "^0.1.1",
     "performance-now": "^2.1.0",
     "telegraf": "^4.0.3",
     "telegraf-inline-menu": "^6.1.0",
-    "telegraf-update-logger": "^1.4.0"
+    "telegraf-update-logger": "^1.4.0",
+    "util": "*"
   }
 }
