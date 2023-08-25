@@ -1,17 +1,17 @@
 const {Telegraf} = require("telegraf");
 const {
-    handleRegistration,
-    findContact,
-    chatContact,
-    getUser,
+    // handleRegistration,
+    // findContact,
+    // chatContact,
+    // getUser,
     connect,
-    config
+    // config
 } = require('./controller/base.js');
-const { handleFindingPartner } = require('./controller/findPartner.js');
+/*const { handleFindingPartner } = require('./controller/findPartner.js');
 const { handleMessage } = require('./controller/isCmd.js');
 const {handleSession} = require("./controller/skip.js");
 const {handleStopSession} = require("./controller/stop.js");
-const sendBroadcastMessage = require("./controller/bc.js");
+const sendBroadcastMessage = require("./controller/bc.js");*/
 const { config: cnf } = require('dotenv');
 const express = require("express");
 const {profile} = require("./controller/profile");
@@ -28,6 +28,7 @@ profile(bot);
 
 
 
+/*
 bot.on('message', async (userScope) => {
     // userScope.sendMessage("hey salom")
 
@@ -97,6 +98,7 @@ bot.on('message', async (userScope) => {
             break;
     }
 })
+*/
 
 app.get('/', (req,res) => {
     res.status(200).json({
