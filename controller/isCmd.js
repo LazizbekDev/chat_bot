@@ -1,7 +1,8 @@
 const {
     findContact,
     chatContact,
-    findContactPartner
+    findContactPartner,
+    config
 } = require('./base.js')
 
 async function handleMessage(bot, lintof, isText, isSticker, isImage, isVideo, isAudio, isContact, isDocument, isAnimation) {
@@ -25,7 +26,7 @@ async function handleMessage(bot, lintof, isText, isSticker, isImage, isVideo, i
 
         const contactResult = await chatContact(lintof.chat.id);
         const partnerContact = await findContactPartner(contactResult.contactId);
-
+        // console.log(partnerContact)
         if (partnerContact.contactId === contactResult.partnerId) {
             if (isText) {
                 await bot.telegram.sendMessage(contactResult.partnerId, lintof.message.text, { parse_mode: "Markdown" });

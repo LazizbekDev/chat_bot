@@ -14,7 +14,7 @@ const {handleStopSession} = require("./controller/stop.js");
 const sendBroadcastMessage = require("./controller/bc.js");
 const { config: cnf } = require('dotenv');
 const express = require("express");
-const colors = require('colors')
+// const colors = require('colors')
 
 const app = express();
 app.use(express.json());
@@ -35,7 +35,7 @@ bot.on('message', async (userScope) => {
     // const isGroup = userScope.chat.type.includes("group")
     const from = userScope.chat.id
 
-    console.log(userScope.chat)
+    // console.log(userScope.chat)
     // Database Query
 
     const sender = getUser(userScope.message.from)

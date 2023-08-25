@@ -4,7 +4,8 @@
   "description": "Bot anonymous chat telegram use lib telegraf",
   "main": "main.js",
   "scripts": {
-    "start": "node main.js"
+    "start": "node main.js",
+    "dev": "node --trace-warnings --watch main.js"
   },
   "repository": {
     "type": "git",
