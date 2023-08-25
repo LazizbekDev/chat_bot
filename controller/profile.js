@@ -38,9 +38,6 @@ exports.profile = (bot) => {
     })
 
     bot.action("setHidden", async (ctx) => {
-        let deleteIt = false
-
-        if (deleteIt) ctx.deleteMessage();
         const {country} = await User.findOne({ contactId: ctx.chat.id });
         try {
             const updateCountry = await User.findOneAndUpdate(
