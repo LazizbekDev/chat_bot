@@ -12,7 +12,8 @@ exports.profile = (bot) => {
                     ],
                     [{text: "Show country", callback_data: "set_country"}]
                 ]
-            }
+            },
+            protect_content: true
         })
     })
 
@@ -29,7 +30,8 @@ exports.profile = (bot) => {
                         {text: `${ctx.update.callback_query.from.language_code} ${country !== 'hidden' ? '✅' : ''}`, callback_data: country !== 'hidden' ? "alert" : 'setHidden'}
                     ]
                 ]
-            }
+            },
+            protect_content: true
         })
     })
 
