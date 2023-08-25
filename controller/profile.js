@@ -1,19 +1,17 @@
 const Contact = require("../model/Contact.js");
 exports.message = `<i>Hey ghost, there is nothing abt u, u can set ur infos such as ur age</i>`
 
-exports.profile = (bot) => {
-    bot.command(['start', 'help'], (ctx) => {
-        ctx.replyWithHTML(this.message, {
-            reply_markup: {
-                inline_keyboard: [
-                    [
-                        {text: "Age", callback_data: "not set yet"},
-                        {text: "Gander", callback_data: "Not set yet"}
-                    ],
-                    [{text: "Show country", callback_data: "set_country"}]
-                ]
-            }
-        })
+exports.profile = (bot, ctx) => {
+    ctx.replyWithHTML(this.message, {
+        reply_markup: {
+            inline_keyboard: [
+                [
+                    {text: "Age", callback_data: "not set yet"},
+                    {text: "Gander", callback_data: "Not set yet"}
+                ],
+                [{text: "Show country", callback_data: "set_country"}]
+            ]
+        }
     })
 
     bot.action('set_country', async (ctx) => {
@@ -59,7 +57,7 @@ exports.profile = (bot) => {
                 return;
             }
             ctx.answerCbQuery(updateCountry.country)
-            // ctx.deleteMessage();
+            ctx.deleteMessage();
             await bot.telegram.sendMessage(ctx.chat.id, `Country updated, You set to **${updateCountry.country.toUpperCase()}** \nClick to /start to start chat`, { parse_mode: "Markdown" })
         } catch (err) {
             console.log(err);

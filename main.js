@@ -14,7 +14,7 @@ const {handleStopSession} = require("./controller/stop.js");
 const sendBroadcastMessage = require("./controller/bc.js");
 const { config: cnf } = require('dotenv');
 const express = require("express");
-// const {profile} = require("./controller/profile.js");
+const {profile} = require("./controller/profile.js");
 // const colors = require('colors')
 
 const app = express();
@@ -24,7 +24,6 @@ cnf();
 
 const bot = new Telegraf(process.env.botToken);
 connect().then(()=>{});
-// profile(bot);
 
 
 
@@ -83,6 +82,9 @@ bot.on('message', async (userScope) => {
             break;
         case "/stop":
             await handleStopSession(from, bot);
+            break;
+        case "/setting":
+            profile(bot, userScope);
             break;
         case "/bc":
         case "/broadcast":
