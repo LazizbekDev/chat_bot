@@ -1,7 +1,7 @@
 {
-  "name": "anonymouschat-telegraf",
-  "version": "1.0.0",
-  "description": "Bot anonymous chat telegram use lib telegraf",
+  "name": "veil-talks",
+  "version": "1.1.4",
+  "description": "Anonymous chat bot",
   "main": "main.js",
   "scripts": {
     "start": "node main.js",
@@ -9,36 +9,25 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mccnlight/anonymouschat-telegraf.git"
+    "url": "git+https://github.com/LazizbekDev/chat_bot.git"
   },
   "keywords": [
     "bot",
     "telegram",
     "telegraf",
-    "telebot"
+    "telegram bot"
   ],
-  "author": "mccnlight",
-  "license": "Apache-2.0",
+  "author": "Lazizbekdev",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/mccnlight/anonymouschat-telegraf/issues"
   },
   "homepage": "https://github.com/mccnlight/anonymouschat-telegraf#readme",
   "dependencies": {
-    "chalk": "*",
     "colors": "^1.4.0",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
-    "extra": "^0.2.1",
-    "fs": "*",
-    "markup": "0.0.4",
-    "moment-timezone": "^0.5.33",
     "mongoose": "*",
-    "nodemon": "^2.0.7",
-    "os": "^0.1.1",
-    "performance-now": "^2.1.0",
-    "telegraf": "^4.12.0",
-    "telegraf-inline-menu": "^6.1.0",
-    "telegraf-update-logger": "^1.4.0",
-    "util": "*"
+    "telegraf": "^4.12.0"
   }
 }

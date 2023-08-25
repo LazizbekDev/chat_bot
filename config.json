@@ -6,8 +6,8 @@
     "registerSuccess": "*Successful registration*",
     "unRegisterSuccess": "Account was successfully deleted! you can't get any transmission and use the bot before re-signing up",
     "error": {
-      "sessionNotFound": "You don't have a partner yet, write /start to find your partner You🔹don't have a partner yet, enter the word /start to find a partner",
-      "partnerNotFound": "❌ Failed, partner not found please type /start to find a partner ❌",
+      "sessionNotFound": "You don't have a partner yet, click to /start to find a partner 🙃",
+      "partnerNotFound": "*Failed, partner not found please type /start to find a partner* 😞",
       "partnerStopSession": "⚠️ Your partner has stopped the session, please type /start to find another ⚠️ partner",
       "stopSession": "You have stopped the session, please type /start to find another partner",
       "nextSession": "⌛ *You have terminated the session, are looking for another partner, please wait...* ⌛",
@@ -19,7 +19,7 @@
       "stick": "⚠️ An error occurred while sending the sticker ⚠️",
       "audioMax": "❌ Failed, you sent Audio with a duration of more than 25 seconds, the maximum duration is 25 seconds! ❌",
       "videoMax": "❌ Failed, you send a video with a duration of more than 20 seconds, the maximum duration is 20 seconds! ❌",
-      "isGroup": "⚠️ This bot cannot enter groups, Anonymxs is only for Personal Chat ⚠️"
+      "isGroup": "⚠️ This bot cannot enter groups, this is only for Personal Chat ⚠️"
     }
   }
 }

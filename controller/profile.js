@@ -58,7 +58,7 @@ exports.profile = (bot, ctx) => {
             }
             ctx.answerCbQuery(updateCountry.country)
             ctx.deleteMessage();
-            await bot.telegram.sendMessage(ctx.chat.id, `Country updated, You set to **${updateCountry.country.toUpperCase()}** \nClick to /start to start chat`, { parse_mode: "Markdown" })
+            await bot.telegram.sendMessage(ctx.chat.id, `Country updated, You set to **${updateCountry.country.toUpperCase()}**`, { parse_mode: "Markdown" })
         } catch (err) {
             console.log(err);
             throw err;
