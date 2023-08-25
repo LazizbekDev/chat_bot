@@ -16,10 +16,24 @@ const contactSchema = new mongoose.Schema({
     default: 0,
   },
 
-
   username: {
     type: String,
     default: null
+  },
+
+  age: {
+    type: Number,
+    default: null
+  },
+
+  gender: {
+    type: String,
+    enum: ['m', 'f'],
+  },
+
+  country: {
+    type: String,
+    default: "hidden"
   }
 });
 

@@ -14,6 +14,7 @@ const {handleStopSession} = require("./controller/stop.js");
 const sendBroadcastMessage = require("./controller/bc.js");
 const { config: cnf } = require('dotenv');
 const express = require("express");
+const {profile} = require("./controller/profile");
 // const colors = require('colors')
 
 const app = express();
@@ -23,10 +24,11 @@ cnf();
 
 const bot = new Telegraf(process.env.botToken);
 connect().then(()=>{});
+profile(bot);
+
 
 
 bot.on('message', async (userScope) => {
-
     // userScope.sendMessage("hey salom")
 
     const body = userScope.update.message.text || userScope.message.caption || userScope.message.text || ''
@@ -35,7 +37,7 @@ bot.on('message', async (userScope) => {
     // const isGroup = userScope.chat.type.includes("group")
     const from = userScope.chat.id
 
-    // console.log(userScope.chat)
+    console.log(userScope.update.message.from)
     // Database Query
 
     const sender = getUser(userScope.message.from)
