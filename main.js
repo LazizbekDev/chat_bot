@@ -1,20 +1,20 @@
 const {Telegraf} = require("telegraf");
 const {
-    // handleRegistration,
-    // findContact,
-    // chatContact,
-    // getUser,
+    handleRegistration,
+    findContact,
+    chatContact,
+    getUser,
     connect,
-    // config
+    config
 } = require('./controller/base.js');
-/*const { handleFindingPartner } = require('./controller/findPartner.js');
+const { handleFindingPartner } = require('./controller/findPartner.js');
 const { handleMessage } = require('./controller/isCmd.js');
 const {handleSession} = require("./controller/skip.js");
 const {handleStopSession} = require("./controller/stop.js");
-const sendBroadcastMessage = require("./controller/bc.js");*/
+const sendBroadcastMessage = require("./controller/bc.js");
 const { config: cnf } = require('dotenv');
 const express = require("express");
-const {profile} = require("./controller/profile");
+// const {profile} = require("./controller/profile.js");
 // const colors = require('colors')
 
 const app = express();
@@ -24,25 +24,17 @@ cnf();
 
 const bot = new Telegraf(process.env.botToken);
 connect().then(()=>{});
-profile(bot);
+// profile(bot);
 
 
 
-/*
 bot.on('message', async (userScope) => {
-    // userScope.sendMessage("hey salom")
-
     const body = userScope.update.message.text || userScope.message.caption || userScope.message.text || ''
     const command = body.split(' ')[0]
     const isCmd = body.startsWith('/')
     // const isGroup = userScope.chat.type.includes("group")
     const from = userScope.chat.id
-
-    console.log(userScope.update.message.from)
-    // Database Query
-
     const sender = getUser(userScope.message.from)
-    // Get user ID
     // const userid = sender.id
     // Get user name
     const username = sender.username
@@ -98,7 +90,6 @@ bot.on('message', async (userScope) => {
             break;
     }
 })
-*/
 
 app.get('/', (req,res) => {
     res.status(200).json({
