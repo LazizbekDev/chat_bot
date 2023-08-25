@@ -3,7 +3,7 @@ async function handleStopSession(from, bot) {
     try {
         const contact = await findContact(from);
 
-        console.log(contact)
+        // console.log(contact)
         if (contact.status === 0) {
             await bot.telegram.sendMessage(from, config.mess.error.sessionNotFound, { parse_mode: "Markdown" });
             return;

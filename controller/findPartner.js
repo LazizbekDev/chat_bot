@@ -48,16 +48,22 @@ async function handleFindingPartner(from, bot, lintof) {
                     partnerRes.partnerId = finder.contactId;
                     await finder.save();
                     await partnerRes.save();
+                    const info = {
+                        gender: partnerRes?.gender,
+                        country: partnerRes?.country,
+                        age: partnerRes?.age
+                    }
 
-                    await bot.telegram.sendMessage(
-                        partnerRes.contactId,
-                        config.mess.partnerFound,
-                        {parse_mode: "Markdown"}
-                    );
+                    const toPartner = await db.findOne({contactId: partnerRes.partnerId})
+                    console.log("to partner: ", toPartner);
+
+                    await bot.telegram.sendMessage(partnerRes.contactId,
+                        `${toPartner.country !== 'hidden' ? '*Language: ' + toPartner.country + '*🌎\n' : ''}${toPartner.gender ? '*Gender: ' + toPartner.gender + '*\n' : ''}${toPartner.age ? '*Age: ' + toPartner.age + '*📅\n' : ''}${config.mess.partnerFound}`,
+                        {parse_mode: "Markdown"});
 
                     await bot.telegram.sendMessage(
                         partnerRes.partnerId,
-                        config.mess.partnerFound,
+                        `${info.country !== 'hidden' ? '*Language: ' + info.country + '*🌎\n' : ''}${info.gender ? '*Gender: ' + info.gender + '*\n' : ''}${info.age ? '*Age: ' + info.age + '*📅\n' : ''}${config.mess.partnerFound}`,
                         {parse_mode: "Markdown"}
                     );
                 } catch (error) {

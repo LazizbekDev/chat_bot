@@ -11,7 +11,7 @@ async function handleSession(from, bot) {
         }
 
         const partnerContact = await findContactPartner(contact.contactId);
-        console.log(partnerContact)
+        // console.log(partnerContact)
         try {
             await bot.telegram.sendMessage(partnerContact.contactId, config.mess.error.partnerStopSession, { parse_mode: "Markdown" });
 
