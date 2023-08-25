@@ -1,4 +1,4 @@
-const User = require("../model/Contact");
+const Contact = require("../model/Contact.js");
 exports.message = `<i>Hey ghost, there is nothing abt u, u can set ur infos such as ur age</i>`
 
 exports.profile = (bot) => {
@@ -20,7 +20,7 @@ exports.profile = (bot) => {
     bot.action('set_country', async (ctx) => {
         ctx.deleteMessage();
 
-        const {country} = await User.findOne({ contactId: ctx.chat.id });
+        const {country} = await Contact.findOne({ contactId: ctx.chat.id });
 
         await bot.telegram.sendMessage(ctx.chat.id, 'Set Your country', {
             reply_markup: {
@@ -40,9 +40,9 @@ exports.profile = (bot) => {
     })
 
     bot.action("setHidden", async (ctx) => {
-        const {country} = await User.findOne({ contactId: ctx.chat.id });
+        const {country} = await Contact.findOne({ contactId: ctx.chat.id });
         try {
-            const updateCountry = await User.findOneAndUpdate(
+            const updateCountry = await Contact.findOneAndUpdate(
                 { contactId: ctx.chat.id },
                 { $set: { country: country !== 'hidden' ? "hidden" : ctx.update.callback_query.from.language_code } },
                 { new: true }
