@@ -12,27 +12,31 @@ exports.profile = (bot) => {
                     ],
                     [{text: "Show country", callback_data: "set_country"}]
                 ]
-            },
-            protect_content: true
+            }
         })
     })
 
     bot.action('set_country', async (ctx) => {
         ctx.deleteMessage();
 
-        const {country} = await Contact.findOne({ contactId: ctx.chat.id });
+        try {
+            const {country} = await Contact.findOne({ contactId: ctx.chat.id });
 
-        await bot.telegram.sendMessage(ctx.chat.id, 'Set Your country', {
-            reply_markup: {
-                inline_keyboard: [
-                    [
-                        {text: `Hidden ${country === 'hidden' ? '✅' : ''}`, callback_data: country === 'hidden' ? "alert" : 'setHidden'},
-                        {text: `${ctx.update.callback_query.from.language_code} ${country !== 'hidden' ? '✅' : ''}`, callback_data: country !== 'hidden' ? "alert" : 'setHidden'}
+            await bot.telegram.sendMessage(ctx.chat.id, 'Set Your country', {
+                reply_markup: {
+                    inline_keyboard: [
+                        [
+                            {text: `Hidden ${country === 'hidden' ? '✅' : ''}`, callback_data: country === 'hidden' ? "alert" : 'setHidden'},
+                            {text: `${ctx.update.callback_query.from.language_code} ${country !== 'hidden' ? '✅' : ''}`, callback_data: country !== 'hidden' ? "alert" : 'setHidden'}
+                        ]
                     ]
-                ]
-            },
-            protect_content: true
-        })
+                }
+            })
+        } catch (err) {
+            await bot.telegram.sendMessage(ctx.chat.id, 'Set Your country', {parse_mode: "Markdown"})
+            console.error(err);
+            throw err;
+        }
     })
 
     bot.action("alert", (ctx) => {
@@ -40,8 +44,9 @@ exports.profile = (bot) => {
     })
 
     bot.action("setHidden", async (ctx) => {
-        const {country} = await Contact.findOne({ contactId: ctx.chat.id });
         try {
+            const {country} = await Contact.findOne({ contactId: ctx.chat.id });
+
             const updateCountry = await Contact.findOneAndUpdate(
                 { contactId: ctx.chat.id },
                 { $set: { country: country !== 'hidden' ? "hidden" : ctx.update.callback_query.from.language_code } },
