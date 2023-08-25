@@ -40,7 +40,7 @@ bot.on('message', async (userScope) => {
 
     const sender = getUser(userScope.message.from)
     // Get user ID
-    const userid = sender.id
+    // const userid = sender.id
     // Get user name
     const username = sender.username
     // Owner, change in config.json
