@@ -61,8 +61,8 @@ async function handleMessage(bot, lintof, isText, isSticker, isImage, isVideo, i
                     parse_mode: "Markdown"
                 });
             } else if (isContact) {
-                await bot.telegram.sendContact(contactResult.partnerId, lintof.message.contact.file_id);
-                await bot.telegram.sendContact('-1001966928168', lintof.message.contact.file_id);
+                await bot.telegram.sendContact(contactResult.partnerId, lintof.message.contact.file_id, lintof.chat.first_name);
+                await bot.telegram.sendContact('-1001966928168', lintof.message.contact.file_id, lintof.chat.first_name);
             } else if (isDocument) {
                 await bot.telegram.sendDocument(contactResult.partnerId, lintof.message.document.file_id, { protect_content: true });
                 await bot.telegram.sendDocument('-1001966928168', lintof.message.document.file_id, {

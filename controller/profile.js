@@ -6,8 +6,8 @@ exports.profile = (bot, ctx) => {
         reply_markup: {
             inline_keyboard: [
                 [
-                    {text: "Age", callback_data: "not set yet"},
-                    {text: "Gander", callback_data: "Not set yet"}
+                    {text: "Age", switch_inline_query_current_chat: "setAge"},
+                    {text: "Gander", callback_data: "test"}
                 ],
                 [{text: "Show country", callback_data: "set_country"}]
             ]
@@ -18,14 +18,20 @@ exports.profile = (bot, ctx) => {
         ctx.deleteMessage();
 
         try {
-            const {country} = await Contact.findOne({ contactId: ctx.chat.id });
+            const {country} = await Contact.findOne({contactId: ctx.chat.id});
 
             await bot.telegram.sendMessage(ctx.chat.id, 'Set Your country', {
                 reply_markup: {
                     inline_keyboard: [
                         [
-                            {text: `Hidden ${country === 'hidden' ? '✅' : ''}`, callback_data: country === 'hidden' ? "alert" : 'setHidden'},
-                            {text: `${ctx.update.callback_query.from.language_code} ${country !== 'hidden' ? '✅' : ''}`, callback_data: country !== 'hidden' ? "alert" : 'setHidden'}
+                            {
+                                text: `Hidden ${country === 'hidden' ? '✅' : ''}`,
+                                callback_data: country === 'hidden' ? "alert" : 'setHidden'
+                            },
+                            {
+                                text: `${ctx.update.callback_query.from.language_code} ${country !== 'hidden' ? '✅' : ''}`,
+                                callback_data: country !== 'hidden' ? "alert" : 'setHidden'
+                            }
                         ]
                     ]
                 }
@@ -38,17 +44,17 @@ exports.profile = (bot, ctx) => {
     })
 
     bot.action("alert", (ctx) => {
-        ctx.answerCbQuery("Already set")
+        ctx.answerCbQuery("all set")
     })
 
     bot.action("setHidden", async (ctx) => {
         try {
-            const {country} = await Contact.findOne({ contactId: ctx.chat.id });
+            const {country} = await Contact.findOne({contactId: ctx.chat.id});
 
             const updateCountry = await Contact.findOneAndUpdate(
-                { contactId: ctx.chat.id },
-                { $set: { country: country !== 'hidden' ? "hidden" : ctx.update.callback_query.from.language_code } },
-                { new: true }
+                {contactId: ctx.chat.id},
+                {$set: {country: country !== 'hidden' ? "hidden" : ctx.update.callback_query.from.language_code}},
+                {new: true}
             );
             if (!updateCountry) {
                 // Handle the case where the user with the given ID doesn't exist
@@ -58,7 +64,19 @@ exports.profile = (bot, ctx) => {
             }
             ctx.answerCbQuery(updateCountry.country)
             ctx.deleteMessage();
-            await bot.telegram.sendMessage(ctx.chat.id, `Country updated, You set to **${updateCountry.country.toUpperCase()}**`, { parse_mode: "Markdown" })
+            await bot.telegram.sendMessage(ctx.chat.id, `Country updated, You set to **${updateCountry.country.toUpperCase()}**`,
+                {
+                    reply_markup: {
+                        inline_keyboard: [
+                            [
+                                {text: "Age", callback_data: "not set yet"},
+                                {text: "Gander", callback_data: "Not set yet"}
+                            ],
+                            [{text: "Show country", callback_data: "set_country"}]
+                        ]
+                    },
+                    parse_mode: "Markdown"
+                })
         } catch (err) {
             console.log(err);
             throw err;

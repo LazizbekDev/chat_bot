@@ -93,6 +93,29 @@ bot.on('message', async (userScope) => {
     }
 })
 
+bot.inlineQuery('setAge', async (ctx) => {
+    const input = [...Array(40).keys()].filter((t) => t>11)
+    const result = input.map(t => {
+        return {
+            type: 'article',
+            title: `${t}y.o`,
+            id: String(t),
+            input_message_content: {
+                message_text: `${t}y.o`
+            },
+            description: `${t}y.o`
+        }
+    })
+    console.log(ctx.chosenInlineResult, '1')
+
+    ctx.answerInlineQuery(result)
+})
+
+bot.on('chosen_inline_result', (ctx) => {
+    ctx.chosenInlineResult({from: ctx.chat.id});
+    console.log(ctx.chosenInlineResult({from: ctx.chat.id}), '2')
+})
+
 app.get('/', (req,res) => {
     res.status(200).json({
         status: "OK",
